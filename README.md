@@ -7,7 +7,7 @@ This repository is the starter template for the **Platform squad** technical int
 ## What's in the box
 
 - **Django + DRF backend** exposing Opply's core domain (buyers, suppliers, ingredients, orders, order items, products). SQLite-backed for ease of setup.
-- **LocalStack** with Step Functions, Lambda, SQS, SNS, IAM, CloudWatch Logs, EventBridge, S3, Secrets Manager, DynamoDB, CloudFormation, SSM, ECR, and STS enabled.
+- **LocalStack** with Step Functions, Lambda, SQS, SNS, IAM, CloudWatch Logs, EventBridge, S3, Secrets Manager, DynamoDB, CloudFormation, SSM, ECR, STS, API Gateway (v1 + v2), and X-Ray enabled.
 - **`supplier-mock` service** — a Flask app at `http://supplier-mock:8080` that stands in for the external supplier. Accepts notifications, pushes lifecycle callbacks, and exposes a status endpoint for polling. See [Supplier mock contract](#supplier-mock-contract) below.
 - **CDK Python scaffold** in `infra/` with a single hello-world Lambda so you can verify the deploy loop end-to-end.
 - **Makefile** orchestrating the common commands (`make up`, `make deploy`, `make destroy`, `make seed`, `make logs`).

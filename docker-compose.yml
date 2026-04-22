@@ -44,7 +44,7 @@ services:
     ports:
       - "4566:4566"
     environment:
-      SERVICES: stepfunctions,lambda,sqs,sns,iam,logs,cloudwatch,events,s3,secretsmanager,dynamodb,cloudformation,ssm,ecr,sts
+      SERVICES: stepfunctions,lambda,sqs,sns,iam,logs,cloudwatch,events,s3,secretsmanager,dynamodb,cloudformation,ssm,ecr,sts,apigateway,apigatewayv2,xray
       DEBUG: 0
       LS_LOG: warn
       PERSISTENCE: 0
