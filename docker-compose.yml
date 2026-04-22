@@ -18,6 +18,7 @@ services:
       AWS_DEFAULT_REGION: eu-west-2
       AWS_ACCESS_KEY_ID: test
       AWS_SECRET_ACCESS_KEY: test
+      INTERNAL_API_SECRET: dev-internal-secret-change-me
     depends_on:
       localstack:
         condition: service_healthy

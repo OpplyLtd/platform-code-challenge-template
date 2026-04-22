@@ -59,6 +59,30 @@ def publish_order_transitioned(order, previous_status: str) -> None:
 
 ---
 
+## Internal API — advance order state
+
+Some of your workflow will need to advance an order through its states (`PROCESSING → SHIPPED → DELIVERED`) once the supplier and carrier have done their bit. Django exposes an internal endpoint you can call:
+
+```
+POST /api/internal/orders/<id>/advance-status/
+Headers: Content-Type: application/json
+         X-Internal-Secret: <shared>
+Body:    {"status": "SHIPPED" | "DELIVERED"}
+```
+
+| Response | Meaning |
+|---|---|
+| `200 + order body` | Transition applied (or already at that status) |
+| `400` | Missing `status` in body |
+| `403` | `X-Internal-Secret` missing or wrong |
+| `404` | Order doesn't exist |
+| `409` | Transition is not valid from the current state |
+| `503` | Server has no `INTERNAL_API_SECRET` configured |
+
+The shared secret lives in `INTERNAL_API_SECRET` on the Django side (see `backend/.env.example`). How your platform-side code obtains that secret is part of the challenge — environment variables, Secrets Manager, SSM, whatever you think is right.
+
+---
+
 ## Supplier mock contract
 
 The `supplier-mock` service simulates the external supplier. It's reachable from inside the docker network at `http://supplier-mock:8080` (and from your host at `http://localhost:8080`).

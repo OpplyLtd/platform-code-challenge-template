@@ -99,3 +99,7 @@ REST_FRAMEWORK = {
 # AWS / LocalStack
 AWS_ENDPOINT_URL = os.environ.get("AWS_ENDPOINT_URL")
 AWS_DEFAULT_REGION = os.environ.get("AWS_DEFAULT_REGION", "eu-west-2")
+
+# Internal API — shared secret for platform-side services to call into
+# Django and advance order state. Must be set for /api/internal/* to work.
+INTERNAL_API_SECRET = os.environ.get("INTERNAL_API_SECRET", "")
