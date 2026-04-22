@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Django
+*.sqlite3
+*.log
+local_settings.py
+media/
+
+# Environment
+.env
+*.env.local
+
+# Node
+node_modules/
+dist/
+.cache/
+
+# CDK
+infra/cdk.out/
+infra/.cdk.staging/
+cdk.out/
+
+# Backend env
+backend/.env
+
+# Interviewer-only workspace — never committed.
+interview/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Docker
+.docker/
